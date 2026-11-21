@@ -38,5 +38,6 @@ uv run --with pytest==8.3.4 pytest -q
 - [Rubric](RUBRIC.md), [checkpoint](CHECKPOINTS.md), [nộp bài](SUBMISSION.md).
 - [`lab/AGENTS.md`](lab/AGENTS.md): bản máy đọc của guideline, mô tả input/output của script.
 - [Nguồn dữ liệu và giấy phép](ATTRIBUTION.md).
+- [Link drive 5 file nộp](https://drive.google.com/drive/folders/13Y3mZdG6Nm9ARQEImydVE_2rujPeajgz?usp=drive_link).
 
 `lint` chỉ kiểm định dạng file. Nó không so bài của bạn với GT và không cho điểm. Coach chấm bằng `road_check check` hoặc `road_check batch` sau buổi.
