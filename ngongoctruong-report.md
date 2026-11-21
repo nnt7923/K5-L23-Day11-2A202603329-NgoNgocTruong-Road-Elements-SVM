@@ -30,15 +30,15 @@ Cách đặt tag ảnh trên bản CVAT này: dùng công cụ Tag ở thanh bê
 | B11 | drivable, lane | Gán vạch ô đỗ và vùng lái bên bãi đỗ; hay chỉ gán vạch dọc | Chỉ gán lane vạch dọc, bỏ vạch ô đỗ và không gán drivable | Vạch ô đỗ không phải lane; khu bãi đỗ không phải làn xe chạy. |
 | B12 | drivable | Gồm hay loại làn xe đạp khỏi vùng lái | Loại làn xe đạp | Guideline loại làn xe đạp, vỉa hè, dải đỗ khỏi vùng lái. |
 | A11, A12, B04, B06, B08, B12 | crosswalk và drivable | Khoét vạch qua đường ra khỏi drivable, hay cho hai polygon chồng nhau | Cho crosswalk nằm chồng lên drivable | Vạch qua đường nằm trên mặt đường lái được; chỉ cần drivable không phủ lên vạch kẻ làn. |
-| A05, A07, A08, A09, A14 | lane | Vẽ thêm L1/R1 theo suy đoán, hay bỏ qua | Không vẽ | Không thấy vạch trong ảnh; vẽ theo suy đoán làm model học vạch không có thật. Lint báo QC1-02, đã ghi vào phiếu và sẽ hỏi coach xác nhận. |
+| A05, A07, A08, A09, A14 | lane | Vẽ thêm L1/R1 theo suy đoán, hay bỏ qua | Không vẽ | A05: đường hẻm đỗ xe, không có sơn; A07: bên trái làn chỉ có dải bê tông; A08: bên trái chỉ có vệt mờ của vạch cũ đã mòn; A09: bên phải là lề đường; A14: ảnh ban đêm, đường trắng sáng ở mép phải có thể là phản chiếu ở vỉa hè nên không gán R1. Vẽ theo suy đoán làm model học vạch không có thật. Lint báo QC1-02, 5 ca này chờ coach xác nhận. |
 | A06 | lane | Vẽ lane từ xa về gần hay gần ra xa | Vẽ gần ra xa | Quy tắc chiều vẽ; lint từng báo lane #14 ngược chiều, đã đảo lại. |
 | B05, B07, B08 | lane | Gán L1/R1 hay other | position = other | Camera hai bên (MVL/MVR) không có khái niệm L1/R1 theo xe. |
 
 ## 4. Phiếu QC 1 nhận được
-Bạn kiểm lô của tôi: dotrunghieu  Quyết định nhận được: (chưa nhận phiếu; điền sau khi bạn gửi)  
+Bạn kiểm lô của tôi: dotrunghieu  Quyết định nhận được: Hold (5 ca chờ lead)  
 | Mã lỗi | Số lỗi | Đồng ý? | Đã sửa? |
 | --- | ---: | --- | --- |
-| (điền khi nhận được phiếu) |  |  |  |
+| QC1-02 (thiếu L1/R1): A05, A07, A08, A09, A14 | 0 xác nhận, 5 ca chờ | Đồng ý là ca chờ: tôi không thấy vạch ở các ảnh này, đã ghi lý do ở mục 3 | Chưa sửa, giữ nguyên vì không vẽ vạch không thấy; chờ coach xác nhận |
 
 ## 5. Kiểm file export
 | File | Mở lại được? | Số shape ảnh 1 (job / file) | Số shape ảnh 2 (job / file) | Tag camera có trong XML? |
