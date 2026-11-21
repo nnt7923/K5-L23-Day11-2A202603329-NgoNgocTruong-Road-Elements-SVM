@@ -3,41 +3,41 @@
   "format": "CVAT for images 1.1",
   "guideline": "Road v1.0",
   "name": "ngongoctruong",
-  "revision": 1,
-  "created_at": "2026-11-21T02:57:28+00:00",
+  "revision": 2,
+  "created_at": "2026-11-21T07:03:02+00:00",
   "files": [
     {
       "file": "ngongoctruong-front.zip",
-      "bytes": 8563,
-      "sha256": "9f9416c46d464cb105c62731db46d823e71b210531a09d81dbc4b7d06ac11ce9",
+      "bytes": 8746,
+      "sha256": "188cec178ec07b6f47e6139e2f24046691111bb96e5b5347d32138f6f32d3a8f",
       "contains_images": false,
       "images": 16,
       "images_unlabelled": 0,
       "images_all_tags": 16,
       "shapes_by_label": {
-        "crosswalk": 9,
+        "crosswalk": 8,
         "drivable": 32,
         "lane": 37,
         "road_curb": 4,
-        "traffic_light": 45,
-        "traffic_sign": 47
+        "traffic_light": 49,
+        "traffic_sign": 48
       }
     },
     {
       "file": "ngongoctruong-fisheye.zip",
-      "bytes": 9232,
-      "sha256": "7e7936aefe9cc58211d0850390f925d5f82a4de67e78e877b1762ad055e9d57c",
+      "bytes": 9131,
+      "sha256": "104d282208093960dc3e2d804913d2fe78d55fe0927f2abe34c511897537c381",
       "contains_images": false,
       "images": 12,
       "images_unlabelled": 0,
       "images_all_tags": 12,
       "shapes_by_label": {
-        "crosswalk": 21,
-        "drivable": 13,
+        "crosswalk": 20,
+        "drivable": 14,
         "lane": 14,
         "road_curb": 9,
         "traffic_light": 13,
-        "traffic_sign": 16
+        "traffic_sign": 15
       }
     }
   ],

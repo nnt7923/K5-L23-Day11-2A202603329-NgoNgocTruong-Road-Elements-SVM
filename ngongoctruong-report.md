@@ -1,8 +1,8 @@
 # Báo cáo cá nhân — Ngày 11
 Họ tên: Ngô Ngọc Trường    Mã học viên: 2A202603329  
 Phiên bản CVAT (Help → About): 2.74.1  
-Guideline: Road v1.0    Lần nộp (`revision` trong manifest): 1  
-Thời điểm export (ngày giờ trên CVAT): 2026-11-20 16:09 UTC (23:09 giờ Việt Nam)    Số lần nộp lại sau Rework: 0  
+Guideline: Road v1.0    Lần nộp (`revision` trong manifest): 2  
+Thời điểm export (ngày giờ trên CVAT): 2026-11-21 07:03 UTC (14:03 giờ Việt Nam, bản sửa sau Rework)    Số lần nộp lại sau Rework: 1  
 
 ## 1. Kiểm project
 | Mục | Đúng như guideline Road v1.0? | Ghi chú |
@@ -35,16 +35,27 @@ Cách đặt tag ảnh trên bản CVAT này: dùng công cụ Tag ở thanh bê
 | B05, B07, B08 | lane | Gán L1/R1 hay other | position = other | Camera hai bên (MVL/MVR) không có khái niệm L1/R1 theo xe. |
 
 ## 4. Phiếu QC 1 nhận được
-Bạn kiểm lô của tôi: dotrunghieu  Quyết định nhận được: Hold (5 ca chờ lead)  
-| Mã lỗi | Số lỗi | Đồng ý? | Đã sửa? |
-| --- | ---: | --- | --- |
-| QC1-02 (thiếu L1/R1): A05, A07, A08, A09, A14 | 0 xác nhận, 5 ca chờ | Đồng ý là ca chờ: tôi không thấy vạch ở các ảnh này, đã ghi lý do ở mục 3 | Chưa sửa, giữ nguyên vì không vẽ vạch không thấy; chờ coach xác nhận |
+Bạn kiểm lô của tôi: dotrunghieu  Quyết định nhận được: Rework (3 lỗi nặng, 23 lỗi chính / 104 nhãn kiểm = 22,1 %, 5 ca chờ lead)  
+Bản nộp lại: revision 2 (bản cũ lưu ở `r1/`).
+
+| Mã lỗi | Đồng ý? | Đã sửa? (revision 2) |
+| --- | --- | --- |
+| Thuộc tính đèn/biển sai (B03 đèn xanh, màu đèn không rõ ở B03, nhóm biển B03) | Đồng ý | Đã sửa: đổi màu đèn, đặt unknown cho đèn quá nhỏ, đổi nhóm biển theo ảnh |
+| Box thừa (B03 cửa tòa nhà gán biển; B03 crosswalk nằm trên vỉa hè; A08 hai crosswalk trên vỉa hè) | Đồng ý | Đã xóa 4 shape |
+| Thiếu đèn/biển (A07, A08, A12) | Đồng ý | Đã thêm 5 box: A07 đèn xe, A08 đèn xe + 2 đèn người đi bộ, A12 biển information |
+| Drivable hở/thiếu (A07 quanh xe bạc, A08 chưa gồm vùng vạch qua đường) | Đồng ý | Đã vẽ lại 3 polygon drivable ở A07, A08 (direct + alternative); A08 đèn A08 chỉnh lại box |
+| Style lane sai (B03 L1, B06) | Đồng ý | Đã đổi sang dashed |
+| B03 L1 nên kéo dài tới (957,630) | Không đồng ý | Chưa sửa: ảnh crop cho thấy đoạn đó là mảnh vụn, không phải vạch sơn; xin coach quyết định |
+| B03 biên drivable, B06 polyline lệch nhẹ | Đồng ý một phần | Chưa sửa, sai lệch nhỏ; sẽ làm ở lần sau nếu coach yêu cầu |
+| QC1-02 (thiếu L1/R1): A05, A07, A08, A09, A14 | 0 xác nhận, 5 ca chờ | Chưa sửa, giữ nguyên vì không vẽ vạch không thấy; chờ coach xác nhận |
+
+Sau khi sửa, `road_check lint --revision 2` vẫn báo 6 mục QC1-02 (các ca chờ ở trên) và 2 cảnh báo nhẹ (A16 và B03, box thấp hơn 8 px, không bắt buộc).
 
 ## 5. Kiểm file export
 | File | Mở lại được? | Số shape ảnh 1 (job / file) | Số shape ảnh 2 (job / file) | Tag camera có trong XML? |
 | --- | --- | --- | --- | --- |
-| ngongoctruong-front.zip | Có (lint đọc 16 ảnh) | A01: 9 / 9 | A02: 5 / 5 | Có, 16/16 ảnh |
-| ngongoctruong-fisheye.zip | Có (lint đọc 12 ảnh) | B01: 2 / 2 | B02: 9 / 9 | Có, 12/12 ảnh |
+| ngongoctruong-front.zip | Có (lint đọc 16 ảnh, revision 2) | A01: 9 / 9 | A02: 5 / 5 | Có, 16/16 ảnh |
+| ngongoctruong-fisheye.zip | Có (lint đọc 12 ảnh, revision 2) | B01: 2 / 2 | B02: 9 / 9 | Có, 12/12 ảnh |
 
 Ghi chú: mỗi file zip chứa một `annotations.xml` gộp từ hai task (front + front-extra, fisheye + fisheye-extra). Lint không còn lỗi nặng ngoài 6 mục QC1-02 ở ảnh không thấy vạch (A05 L1/R1, A07 L1, A08 L1, A09 R1, A14 R1), chờ coach xác nhận.
 
